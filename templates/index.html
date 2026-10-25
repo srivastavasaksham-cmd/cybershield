@@ -51,17 +51,19 @@
     <style>
         body { background-color: #0c192c; color: #ffffff; font-family: 'Inter', sans-serif; }
 
-        /* Dark Theme Styling for Google Translate */
+        /* Dark Theme & Visible Text Styling for Google Translate Widget */
         .goog-te-gadget-simple {
             background-color: #1a2e4a !important;
             border: 1px solid #38bdf8 !important;
-            padding: 8px 14px !important;
+            padding: 6px 12px !important;
             border-radius: 8px !important;
             color: #ffffff !important;
             font-family: 'Inter', sans-serif !important;
             font-size: 0.85rem !important;
             font-weight: 600 !important;
             cursor: pointer !important;
+            display: inline-flex !important;
+            align-items: center !important;
             transition: all 0.2s ease !important;
         }
 
@@ -72,12 +74,26 @@
         }
 
         .goog-logo-link, .goog-te-gadget span > a { display: none !important; }
-        .goog-te-gadget { color: transparent !important; }
+        .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
         .goog-te-gadget-simple img { display: none !important; }
+        
+        .goog-te-gadget-simple .goog-te-menu-value {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
         
         .goog-te-gadget-simple .goog-te-menu-value span {
             color: #38bdf8 !important;
             border-left: none !important;
+        }
+
+        .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3) {
+            border-left: 4px solid transparent !important;
+            border-right: 4px solid transparent !important;
+            border-top: 5px solid #38bdf8 !important;
+            display: inline-block !important;
+            margin-left: 4px !important;
         }
     </style>
 </head>
@@ -492,6 +508,8 @@
             </div>
 
             <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6 shadow-xl max-w-2xl mx-auto">
+                
+                <!-- SCENARIO 1 -->
                 <div id="quiz-q1" class="quiz-step">
                     <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 1 of 4</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">
@@ -499,11 +517,11 @@
                     </h3>
 
                     <div class="space-y-3 mt-5">
-                        <button onclick="checkAnswer(1, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(1, false, this)" class="q1-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>A) Enter my UPI PIN quickly to help them return the money.</span>
                             <span class="text-slate-500 text-xs">Option 1</span>
                         </button>
-                        <button onclick="checkAnswer(1, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(1, true, this)" class="q1-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>B) Refuse! You NEVER enter a PIN to receive or refund money. Check my bank balance independently.</span>
                             <span class="text-slate-500 text-xs">Option 2</span>
                         </button>
@@ -512,6 +530,7 @@
                     <button onclick="nextQuestion(2)" id="next-btn-1" class="hidden mt-4 bg-cyber-accent text-cyber-dark font-extrabold px-4 py-2 rounded-lg text-sm">Next Scenario →</button>
                 </div>
 
+                <!-- SCENARIO 2 -->
                 <div id="quiz-q2" class="quiz-step hidden">
                     <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 2 of 4</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">
@@ -519,11 +538,11 @@
                     </h3>
 
                     <div class="space-y-3 mt-5">
-                        <button onclick="checkAnswer(2, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(2, false, this)" class="q2-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>A) Call the personal mobile number given in the SMS right away.</span>
                             <span class="text-slate-500 text-xs">Option 1</span>
                         </button>
-                        <button onclick="checkAnswer(2, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(2, true, this)" class="q2-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>B) Ignore the SMS number! Check official paper bills or official power utility payment portal.</span>
                             <span class="text-slate-500 text-xs">Option 2</span>
                         </button>
@@ -532,6 +551,7 @@
                     <button onclick="nextQuestion(3)" id="next-btn-2" class="hidden mt-4 bg-cyber-accent text-cyber-dark font-extrabold px-4 py-2 rounded-lg text-sm">Next Scenario →</button>
                 </div>
 
+                <!-- SCENARIO 3 -->
                 <div id="quiz-q3" class="quiz-step hidden">
                     <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 3 of 4</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">
@@ -539,11 +559,11 @@
                     </h3>
 
                     <div class="space-y-3 mt-5">
-                        <button onclick="checkAnswer(3, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(3, false, this)" class="q3-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>A) Click install immediately to get the subsidy benefits.</span>
                             <span class="text-slate-500 text-xs">Option 1</span>
                         </button>
-                        <button onclick="checkAnswer(3, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(3, true, this)" class="q3-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>B) Never install APK files from WhatsApp! Only download apps from official Play Store.</span>
                             <span class="text-slate-500 text-xs">Option 2</span>
                         </button>
@@ -552,6 +572,7 @@
                     <button onclick="nextQuestion(4)" id="next-btn-3" class="hidden mt-4 bg-cyber-accent text-cyber-dark font-extrabold px-4 py-2 rounded-lg text-sm">Next Scenario →</button>
                 </div>
 
+                <!-- SCENARIO 4 -->
                 <div id="quiz-q4" class="quiz-step hidden">
                     <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 4 of 4</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">
@@ -559,17 +580,36 @@
                     </h3>
 
                     <div class="space-y-3 mt-5">
-                        <button onclick="checkAnswer(4, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(4, false, this)" class="q4-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>A) Transfer money immediately as demanded to avoid going to jail.</span>
                             <span class="text-slate-500 text-xs">Option 1</span>
                         </button>
-                        <button onclick="checkAnswer(4, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                        <button onclick="checkAnswer(4, true, this)" class="q4-opt w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed">
                             <span>B) Disconnect the video call immediately! Police never conduct arrests or ask for money on video calls.</span>
                             <span class="text-slate-500 text-xs">Option 2</span>
                         </button>
                     </div>
                     <div id="quiz-feedback-4" class="hidden mt-5 p-4 rounded-xl text-sm font-bold"></div>
+                    <button onclick="showFinalResult()" id="finish-btn" class="hidden mt-4 bg-emerald-500 hover:bg-emerald-400 text-cyber-dark font-extrabold px-5 py-2.5 rounded-lg text-sm transition-all shadow-lg">View Final Result 🎉</button>
                 </div>
+
+                <!-- FINAL RESULT CARD -->
+                <div id="quiz-result" class="quiz-step hidden text-center py-4">
+                    <span class="bg-emerald-500/20 text-emerald-300 text-xs font-extrabold px-3 py-1 rounded-full border border-emerald-500/30">Quiz Completed</span>
+                    <h3 class="text-2xl font-extrabold text-white mt-4">🎉 Congratulations!</h3>
+                    <p class="text-slate-400 text-sm mt-1">You have completed the Cyber Safety Assessment.</p>
+
+                    <div class="my-6 bg-slate-900/80 p-6 rounded-2xl border border-slate-800">
+                        <p class="text-xs text-slate-400 uppercase tracking-widest font-bold">Your Overall Score</p>
+                        <p id="final-score-text" class="text-4xl font-black text-cyber-accent my-2 font-mono">0 / 4</p>
+                        <p id="final-score-msg" class="text-sm font-semibold text-slate-300 mt-2"></p>
+                    </div>
+
+                    <button onclick="resetQuiz()" class="bg-cyber-accent text-cyber-dark font-extrabold px-6 py-2.5 rounded-xl text-sm hover:scale-105 transition-transform shadow-lg">
+                        🔄 Retake Quiz
+                    </button>
+                </div>
+
             </div>
         </section>
 
@@ -577,6 +617,8 @@
 
     <!-- JavaScript Interactivity Code -->
     <script>
+        let userScore = 0;
+
         function switchTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             
@@ -609,7 +651,21 @@
             }
         }
 
-        function checkAnswer(questionNum, isCorrect) {
+        function checkAnswer(questionNum, isCorrect, clickedBtn) {
+            // Lock options so user cannot change selection
+            const options = document.querySelectorAll('.q' + questionNum + '-opt');
+            options.forEach(opt => {
+                opt.disabled = true;
+                opt.classList.remove('hover:bg-slate-800');
+            });
+
+            if (isCorrect) {
+                userScore++;
+                clickedBtn.classList.add('bg-emerald-950', 'border-emerald-500');
+            } else {
+                clickedBtn.classList.add('bg-red-950', 'border-red-500');
+            }
+
             const feedback = document.getElementById('quiz-feedback-' + questionNum);
             feedback.classList.remove('hidden', 'bg-emerald-950', 'text-emerald-300', 'border-emerald-500', 'bg-red-950', 'text-red-300', 'border-red-500');
 
@@ -621,13 +677,66 @@
                 feedback.innerHTML = '❌ DANGER! Falling for urgency or fake authority leads directly to financial loss.';
             }
 
-            const nextBtn = document.getElementById('next-btn-' + questionNum);
-            if(nextBtn) nextBtn.classList.remove('hidden');
+            if (questionNum < 4) {
+                const nextBtn = document.getElementById('next-btn-' + questionNum);
+                if(nextBtn) nextBtn.classList.remove('hidden');
+            } else {
+                const finishBtn = document.getElementById('finish-btn');
+                if(finishBtn) finishBtn.classList.remove('hidden');
+            }
         }
 
         function nextQuestion(qNum) {
             document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
             document.getElementById('quiz-q' + qNum).classList.remove('hidden');
+        }
+
+        function showFinalResult() {
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            const resultTab = document.getElementById('quiz-result');
+            resultTab.classList.remove('hidden');
+
+            const scoreText = document.getElementById('final-score-text');
+            const scoreMsg = document.getElementById('final-score-msg');
+            
+            scoreText.textContent = userScore + " / 4 (" + (userScore * 25) + "%)";
+
+            if(userScore === 4) {
+                scoreMsg.textContent = "🛡️ Excellent Cyber Awareness! You are fully equipped to identify online scams.";
+                scoreMsg.className = "text-sm font-bold text-emerald-400 mt-2";
+            } else if(userScore >= 2) {
+                scoreMsg.textContent = "⚠️ Good effort! Review the Safety Steps & Recent Scams tabs to sharpen your awareness.";
+                scoreMsg.className = "text-sm font-bold text-amber-400 mt-2";
+            } else {
+                scoreMsg.textContent = "🚨 High Vulnerability Risk! Please thoroughly read the Safety Rules to stay safe online.";
+                scoreMsg.className = "text-sm font-bold text-red-400 mt-2";
+            }
+        }
+
+        function resetQuiz() {
+            userScore = 0;
+            
+            // Re-enable option buttons and clear feedback
+            for(let i = 1; i <= 4; i++) {
+                const options = document.querySelectorAll('.q' + i + '-opt');
+                options.forEach(opt => {
+                    opt.disabled = false;
+                    opt.classList.add('hover:bg-slate-800');
+                    opt.classList.remove('bg-emerald-950', 'border-emerald-500', 'bg-red-950', 'border-red-500');
+                });
+
+                const feedback = document.getElementById('quiz-feedback-' + i);
+                if(feedback) feedback.classList.add('hidden');
+
+                const nextBtn = document.getElementById('next-btn-' + i);
+                if(nextBtn) nextBtn.classList.add('hidden');
+            }
+
+            const finishBtn = document.getElementById('finish-btn');
+            if(finishBtn) finishBtn.classList.add('hidden');
+
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('quiz-q1').classList.remove('hidden');
         }
     </script>
 </body>
