@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybershield - Prevention Steps</title>
+    <!-- Modern Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            background-color: #0c192c; 
+            color: #ffffff; 
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            text-align: center; 
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+            padding: 12px 25px;
+            background: #132238;
+            border-radius: 12px;
+            border-bottom: 2px solid #38bdf8;
+        }
+
+        .brand-name { font-size: 1.6em; font-weight: 800; color: #38bdf8; letter-spacing: -0.5px; }
+        .nav-links a { color: #ffffff; text-decoration: none; margin: 0 12px; font-weight: 600; transition: color 0.2s ease; }
+        .nav-links a:hover { color: #38bdf8; }
+
+        .section-title {
+            color: #38bdf8;
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 30px auto 10px auto;
+            text-align: left;
+            max-width: 900px;
+            border-left: 5px solid #38bdf8;
+            padding-left: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Interactive Rule Box */
+        .rule-box {
+            background: #132238;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 24px 28px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-left: 4px solid #38bdf8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateY(-3px);
+            background: #1a2e4a;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+            border-left-color: #7dd3fc;
+        }
+
+        .rule-box h3 { color: #38bdf8; margin-top: 0; font-size: 1.3em; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .rule-box p { color: #cbd5e1; font-size: 1em; line-height: 1.6; font-weight: 400; margin-bottom: 10px; }
+        .analogy { background: #1a2e4a; padding: 12px; border-radius: 8px; font-style: italic; color: #93c5fd; margin-bottom: 12px; font-weight: 600; }
+        
+        .extra-tip {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #38bdf8;
+            font-size: 0.9em;
+            border-top: 1px dashed #1e3a8a;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .rule-box.active .extra-tip {
+            max-height: 100px;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .hint {
+            font-size: 0.75em;
+            color: #94a3b8;
+            text-align: right;
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
+
+    <script>
+        function toggleBox(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header-bar">
+        <div class="brand-name">🛡️ Cybershield</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/prevention">Safety Steps</a>
+            <a href="/scams">Recent Scams</a>
+        </div>
+    </div>
+
+    <div class="section-title">How to Keep Yourself Safe Every Day</div>
+
+    <div class="rule-box" onclick="toggleBox(this)">
+        <h3>1. The Golden UPI Rule: Your PIN is Your Locker Key <span>👇</span></h3>
+        <div class="analogy">💡 Everyday Example: When someone hands you cash, do you hand them your locker key? No!</div>
+        <p><strong>Rule:</strong> You ONLY type your UPI PIN to <em>send</em> money or check balance. You <strong>NEVER</strong> need a PIN to receive money, rewards, or cashback. If a caller says "Enter PIN to collect ₹500," hang up immediately.</p>
+        <div class="extra-tip">🛡️ <strong>Safety Habit:</strong> Always set daily transaction limits on your UPI app to protect your primary bank savings.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+    <div class="rule-box" onclick="toggleBox(this)">
+        <h3>2. The "Secret Signature" Rule: Protect Your OTP <span>👇</span></h3>
+        <div class="analogy">💡 Everyday Example: Giving your OTP to someone is like signing a blank bank cheque for them.</div>
+        <p><strong>Rule:</strong> Bank managers, police, gas agency staff, or electricity officers will <strong>NEVER</strong> call asking for your OTP. Never read out any code sent to your phone.</p>
+        <div class="extra-tip">🛡️ <strong>Safety Habit:</strong> Real officials never ask for secret verification codes over phone calls.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+    <div class="rule-box" onclick="toggleBox(this)">
+        <h3>3. Beware of Mystery WhatsApp Files (.APK Files) <span>👇</span></h3>
+        <div class="analogy">💡 Everyday Example: Don't let an unverified stranger enter your house without checking their ID.</div>
+        <p><strong>Rule:</strong> Scammers send files disguised as "Electricity Bill Update" or "Ration Card List" ending in <code>.apk</code>. Installing these lets strangers read your private bank SMS remotely. Only install apps from the Google Play Store.</p>
+        <div class="extra-tip">🛡️ <strong>Safety Habit:</strong> Check file extensions before opening any file received on messaging apps.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+    <div class="rule-box" onclick="toggleBox(this)">
+        <h3>4. Lock Your WhatsApp with 2-Step Verification <span>👇</span></h3>
+        <p><strong>Rule:</strong> Open WhatsApp &rarr; Settings &rarr; Account &rarr; Two-Step Verification &rarr; Turn On. This creates a secret 6-digit PIN so no hacker can hijack your WhatsApp account onto another phone.</p>
+        <div class="extra-tip">🛡️ <strong>Safety Habit:</strong> Add your email address during 2FA setup so you can easily recover your account if forgotten.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+</body>
+</html>

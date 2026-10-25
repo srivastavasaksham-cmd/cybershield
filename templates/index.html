@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybershield - Cybersecurity Awareness Made Simple</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Modern Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            dark: '#0c192c',
+                            card: '#132238',
+                            cardHover: '#1a2e4a',
+                            accent: '#38bdf8',
+                            border: '#1e3a8a',
+                            danger: '#ef4444',
+                            warning: '#f59e0b',
+                            success: '#10b981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        body { background-color: #0c192c; color: #ffffff; font-family: 'Inter', sans-serif; }
+
+        /* Dark Theme Styling for Google Translate */
+        .goog-te-gadget-simple {
+            background-color: #1a2e4a !important;
+            border: 1px solid #38bdf8 !important;
+            padding: 8px 14px !important;
+            border-radius: 8px !important;
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .goog-te-gadget-simple:hover {
+            background-color: #223c60 !important;
+            border-color: #7dd3fc !important;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+
+        .goog-logo-link, .goog-te-gadget span > a { display: none !important; }
+        .goog-te-gadget { color: transparent !important; }
+        .goog-te-gadget-simple img { display: none !important; }
+        
+        .goog-te-gadget-simple .goog-te-menu-value span {
+            color: #38bdf8 !important;
+            border-left: none !important;
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen pb-20">
+
+    <!-- Header Navigation Bar -->
+    <header class="max-w-7xl mx-auto my-4 px-4 sticky top-2 z-50">
+        <div class="bg-cyber-card/95 backdrop-blur border-b-2 border-cyber-accent rounded-xl px-6 py-4 flex flex-col xl:flex-row justify-between items-center gap-4 shadow-2xl">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">🛡️</span>
+                <div>
+                    <h1 class="text-2xl font-extrabold text-cyber-accent tracking-tight">Cybershield</h1>
+                    <p class="text-xs text-slate-400 font-medium">Safer Internet • Stronger India</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex flex-wrap justify-center items-center gap-1.5 bg-cyber-dark/80 p-1.5 rounded-lg border border-slate-800">
+                <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-3 py-2 rounded-md font-bold text-xs transition-all bg-cyber-accent text-cyber-dark shadow-md">
+                    ℹ️ About
+                </button>
+                <button onclick="switchTab('prevention')" id="nav-prevention" class="nav-btn px-3 py-2 rounded-md font-bold text-xs text-slate-300 hover:text-cyber-accent transition-all">
+                    🛡️ Safety Steps
+                </button>
+                <button onclick="switchTab('scams')" id="nav-scams" class="nav-btn px-3 py-2 rounded-md font-bold text-xs text-slate-300 hover:text-cyber-accent transition-all">
+                    🚨 Recent Scams
+                </button>
+                <button onclick="switchTab('directory')" id="nav-directory" class="nav-btn px-3 py-2 rounded-md font-bold text-xs text-slate-300 hover:text-cyber-accent transition-all">
+                    📞 Emergency
+                </button>
+                <button onclick="switchTab('glossary')" id="nav-glossary" class="nav-btn px-3 py-2 rounded-md font-bold text-xs text-slate-300 hover:text-cyber-accent transition-all">
+                    📖 Jargon
+                </button>
+                <button onclick="switchTab('quiz')" id="nav-quiz" class="nav-btn px-3 py-2 rounded-md font-bold text-xs text-slate-300 hover:text-cyber-accent transition-all">
+                    🎯 Quiz
+                </button>
+            </nav>
+
+            <!-- Styled Translate Button Container -->
+            <div class="flex items-center gap-2 bg-cyber-dark/80 px-3 py-1.5 rounded-xl border border-blue-900/60 shadow-inner">
+                <span class="text-sm">🌐</span>
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Emergency Helpline Banner -->
+    <div class="max-w-6xl mx-auto px-4 mb-8">
+        <div class="bg-gradient-to-r from-blue-900 via-indigo-950 to-blue-900 border border-blue-600 rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl animate-pulse">🚨</span>
+                <div>
+                    <p class="font-bold text-slate-100 text-sm sm:text-base">Victim of a financial cyber fraud?</p>
+                    <p class="text-xs text-blue-200">Call the National Cyber Helpline within the first 15 minutes to initiate transaction freeze!</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="tel:1930" class="bg-red-600 hover:bg-red-500 text-white font-extrabold px-5 py-2.5 rounded-lg shadow-lg text-sm flex items-center gap-2 transition-transform hover:scale-105">
+                    📞 Call 1930
+                </a>
+                <a href="https://cybercrime.gov.in" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-lg text-sm transition-transform hover:scale-105">
+                    🌐 cybercrime.gov.in
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINERS -->
+    <main class="max-w-6xl mx-auto px-4">
+
+        <!-- TAB 0: ABOUT (Default Landing Tab) -->
+        <section id="tab-about" class="tab-content">
+            <div class="mb-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-cyber-accent border-l-4 border-cyber-accent pl-3">
+                    About Cyber Shield
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Detect • Protect • Educate. Securing your entire digital life beyond just banking.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Project Overview Card -->
+                <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-cyber-accent mb-3">📌 What is Cyber Shield?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Cyber Shield is a comprehensive cybersecurity platform designed to identify suspicious links and scam messages, evaluate risk levels through threat intelligence engines, and educate citizens about online fraud prevention. It goes beyond banking to protect your entire digital life including UPI, WhatsApp, SMS, and KYC.
+                    </p>
+                </div>
+
+                <!-- Financial Fraud Trends Table (2021-2025) -->
+                <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6 shadow-xl overflow-x-auto">
+                    <h3 class="text-lg font-bold text-amber-400 mb-2">📊 Financial Fraud Trends in India (2021–2025)</h3>
+                    <p class="text-slate-400 text-xs mb-4">Official growth data tracking complaints and financial losses reported through the National Cyber Crime Reporting System.</p>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-700 text-cyber-accent text-xs">
+                                <th class="py-3 px-4 font-bold">Year</th>
+                                <th class="py-3 px-4 font-bold">Cybercrime Complaints</th>
+                                <th class="py-3 px-4 font-bold">Financial Loss Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-xs text-slate-300 divide-y divide-slate-800 font-mono">
+                            <tr class="hover:bg-slate-900/40">
+                                <td class="py-3 px-4 font-semibold text-white font-sans">2021</td>
+                                <td class="py-3 px-4">2,62,846</td>
+                                <td class="py-3 px-4 text-amber-400">₹551 crore</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40">
+                                <td class="py-3 px-4 font-semibold text-white font-sans">2022</td>
+                                <td class="py-3 px-4">6,94,446</td>
+                                <td class="py-3 px-4 text-amber-400">₹2,290 crore</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40">
+                                <td class="py-3 px-4 font-semibold text-white font-sans">2023</td>
+                                <td class="py-3 px-4">13,10,957</td>
+                                <td class="py-3 px-4 text-amber-400">₹7,465 crore</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40">
+                                <td class="py-3 px-4 font-semibold text-white font-sans">2024</td>
+                                <td class="py-3 px-4">19,18,835</td>
+                                <td class="py-3 px-4 text-amber-400">₹22,848 crore</td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40 bg-blue-950/20">
+                                <td class="py-3 px-4 font-bold text-cyber-accent font-sans">2025</td>
+                                <td class="py-3 px-4 font-bold">24,02,579</td>
+                                <td class="py-3 px-4 font-bold text-red-400">₹22,495 crore</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Common Types of Cyber Attacks Table -->
+                <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-blue-400 mb-4">⚡ Common Types of Cyber Attacks</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-700 text-cyber-accent text-xs">
+                                    <th class="py-3 px-4 font-bold">Cyber Attack</th>
+                                    <th class="py-3 px-4 font-bold">Simple Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs text-slate-300 divide-y divide-slate-800">
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Phishing</td>
+                                    <td class="py-3 px-4">Fake email/message/link scam</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Spear Phishing</td>
+                                    <td class="py-3 px-4">A specific person is targeted</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Whaling</td>
+                                    <td class="py-3 px-4">Senior/executive is targeted</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Smishing</td>
+                                    <td class="py-3 px-4">SMS-based fraud/phishing</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Vishing</td>
+                                    <td class="py-3 px-4">Phone-call based fraud</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Malware</td>
+                                    <td class="py-3 px-4">Malicious software that harms the system</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/40">
+                                    <td class="py-3 px-4 font-semibold text-white">Virus</td>
+                                    <td class="py-3 px-4">Files/programs infected by malware</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 1: PREVENTION STEPS -->
+        <section id="tab-prevention" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-cyber-accent border-l-4 border-cyber-accent pl-3">
+                    Everyday Safety Steps (Self-Defense Rules)
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Click on any rule card below to read deep practical safety habits.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="card bg-cyber-card border-l-4 border-cyber-accent rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover hover:shadow-cyan-900/30 hover:shadow-lg transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-bold text-cyber-accent">1. The UPI Locker Rule (House Key Analogy)</h3>
+                        <span class="text-cyber-accent font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg my-3 border border-slate-800 italic text-xs text-blue-300">
+                        💡 Analogy: When someone gives you cash in hand, do you give them your locker key? No!
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Your UPI PIN is ONLY used to <strong>SEND</strong> money out or check your balance. You <strong>NEVER</strong> enter a PIN to receive cashback or rewards.
+                    </p>
+                    <div class="extra-content hidden mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2">
+                        <p class="text-cyber-accent font-semibold">🛡️ Golden Habit:</p>
+                        <p>If someone sends you a QR code claiming "Scan this to collect ₹1,000 relief reward," it is 100% a scam. Scanning always deducts money!</p>
+                    </div>
+                    <div class="text-right text-[10px] text-slate-500 font-semibold mt-2">Click card to expand details 👆</div>
+                </div>
+
+                <div class="card bg-cyber-card border-l-4 border-cyber-accent rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover hover:shadow-cyan-900/30 hover:shadow-lg transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-bold text-cyber-accent">2. Secret Signature Rule (Protecting OTPs)</h3>
+                        <span class="text-cyber-accent font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg my-3 border border-slate-800 italic text-xs text-blue-300">
+                        💡 Analogy: Giving your OTP to a caller is like signing a blank cheque for a stranger.
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Bank managers, police officers, or gas company agents will <strong>NEVER</strong> ask for your 4-digit or 6-digit OTP code over phone calls.
+                    </p>
+                    <div class="extra-content hidden mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2">
+                        <p class="text-cyber-accent font-semibold">🛡️ Golden Habit:</p>
+                        <p>Never read out codes sent to your SMS inbox. Treat your OTP like your ATM debit card secret password!</p>
+                    </div>
+                    <div class="text-right text-[10px] text-slate-500 font-semibold mt-2">Click card to expand details 👆</div>
+                </div>
+
+                <div class="card bg-cyber-card border-l-4 border-cyber-accent rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover hover:shadow-cyan-900/30 hover:shadow-lg transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-bold text-cyber-accent">3. Beware of Mystery WhatsApp Files (.APK Files)</h3>
+                        <span class="text-cyber-accent font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg my-3 border border-slate-800 italic text-xs text-blue-300">
+                        💡 Analogy: Installing a mystery .apk is like letting a stranger move into your house without checking their ID.
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Never tap install on files ending in <code class="font-mono">.apk</code> sent over WhatsApp/SMS claiming to be "Electricity Bill Update" or "PM Subsidy Form".
+                    </p>
+                    <div class="extra-content hidden mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2">
+                        <p class="text-cyber-accent font-semibold">🛡️ Golden Habit:</p>
+                        <p>Only install mobile applications from the official Google Play Store or Apple App Store. Unknown APKs silently steal bank OTPs!</p>
+                    </div>
+                    <div class="text-right text-[10px] text-slate-500 font-semibold mt-2">Click card to expand details 👆</div>
+                </div>
+
+                <div class="card bg-cyber-card border-l-4 border-cyber-accent rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover hover:shadow-cyan-900/30 hover:shadow-lg transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-bold text-cyber-accent">4. Lock WhatsApp with Two-Step Verification</h3>
+                        <span class="text-cyber-accent font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg my-3 border border-slate-800 italic text-xs text-blue-300">
+                        💡 Analogy: Double locking your front door so nobody can copy your house key.
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Open WhatsApp &rarr; Settings &rarr; Account &rarr; Two-Step Verification &rarr; Turn On.
+                    </p>
+                    <div class="extra-content hidden mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2">
+                        <p class="text-cyber-accent font-semibold">🛡️ Golden Habit:</p>
+                        <p>Setting a 6-digit PIN prevents hackers from cloning your WhatsApp account on another phone even if they get your SMS OTP!</p>
+                    </div>
+                    <div class="text-right text-[10px] text-slate-500 font-semibold mt-2">Click card to expand details 👆</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: RECENT SCAMS IN INDIA -->
+        <section id="tab-scams" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-red-400 border-l-4 border-red-500 pl-3">
+                    Recent Cyber Frauds in India
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Real-world scam methods targeting citizens today. Learn to spot the signs!</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="card bg-cyber-card border-t-4 border-red-500 rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-red-400">1. Fake "Digital Arrest" & Police Video Call Scam</h3>
+                        <span class="text-red-400 font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                        <strong>What happens:</strong> A fake caller in uniform video-calls you on WhatsApp claiming a courier in your name contained illegal items (drugs, fake passports) and demands money online to clear your arrest.
+                    </p>
+                    <div class="extra-content hidden mt-3 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <p class="text-amber-300 font-semibold mb-1">💡 Real Truth:</p>
+                        <p>Indian law enforcement agencies (CBI, Customs, Police) NEVER conduct trials, settlements, or arrests on WhatsApp video calls, nor do they demand money to close cases!</p>
+                    </div>
+                    <div class="bg-slate-900 p-3 rounded-lg mt-3 text-xs font-bold text-cyber-accent border-l-2 border-cyber-accent">
+                        🚨 Action Step: Disconnect immediately. Dial 1930 or visit your local police station.
+                    </div>
+                </div>
+
+                <div class="card bg-cyber-card border-t-4 border-red-500 rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-red-400">2. Fake Electricity & Water Cut-Off SMS Alert</h3>
+                        <span class="text-red-400 font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                        <strong>What happens:</strong> An urgent SMS arrives stating *"Your electricity will be cut off at 9:30 PM due to unpaid bill. Contact officer at 98xxxxxxx immediately."*
+                    </p>
+                    <div class="extra-content hidden mt-3 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <p class="text-amber-300 font-semibold mb-1">💡 Real Truth:</p>
+                        <p>State electricity boards send formal written notices or updates. They NEVER cut off connections within hours based on a text from a personal mobile number!</p>
+                    </div>
+                    <div class="bg-slate-900 p-3 rounded-lg mt-3 text-xs font-bold text-cyber-accent border-l-2 border-cyber-accent">
+                        🚨 Action Step: Never call the number in the SMS. Pay through your official electricity board counter or app.
+                    </div>
+                </div>
+
+                <div class="card bg-cyber-card border-t-4 border-red-500 rounded-xl p-5 cursor-pointer hover:bg-cyber-cardHover transition-all duration-300" onclick="toggleCard(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-red-400">3. Part-Time Telegram Task & YouTube Review Fraud</h3>
+                        <span class="text-red-400 font-bold text-xl expand-icon">+</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                        <strong>What happens:</strong> You receive an offer for work-from-home tasks (rating hotels or liking videos). They pay ₹200 initially, then demand a ₹2,000 "pre-investment deposit" for higher payouts, eventually locking your account.
+                    </p>
+                    <div class="extra-content hidden mt-3 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                        <p class="text-amber-300 font-semibold mb-1">💡 Real Truth:</p>
+                        <p>Legitimate companies will never require job candidates to pay money upfront to get paid.</p>
+                    </div>
+                    <div class="bg-slate-900 p-3 rounded-lg mt-3 text-xs font-bold text-cyber-accent border-l-2 border-cyber-accent">
+                        🚨 Action Step: Never transfer money to unlock job tasks. Report and block the sender.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: EMERGENCY DIRECTORY -->
+        <section id="tab-directory" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-400 border-l-4 border-emerald-500 pl-3">
+                    Bank Emergency Toll-Free Numbers
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Direct official helpline contacts to block cards, UPI, and net banking instantly.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono">
+                <div class="bg-cyber-card p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-white font-sans">State Bank of India (SBI)</h3>
+                    <p class="text-xs text-slate-400 mt-1">Toll Free: <strong class="text-emerald-400 text-sm">1800 1234 / 1800 2100</strong></p>
+                    <p class="text-xs text-slate-400">SMS Block Card: <code class="bg-slate-900 px-1 py-0.5 rounded">BLOCK &lt;Last 4 Digits&gt; to 567676</code></p>
+                </div>
+
+                <div class="bg-cyber-card p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-white font-sans">Punjab National Bank (PNB)</h3>
+                    <p class="text-xs text-slate-400 mt-1">Toll Free: <strong class="text-emerald-400 text-sm">1800 180 2222 / 1800 103 2222</strong></p>
+                    <p class="text-xs text-slate-400">SMS Block Card: <code class="bg-slate-900 px-1 py-0.5 rounded">HOT &lt;Card No&gt; to 5607040</code></p>
+                </div>
+
+                <div class="bg-cyber-card p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-white font-sans">Bank of Baroda (BOB)</h3>
+                    <p class="text-xs text-slate-400 mt-1">Toll Free: <strong class="text-emerald-400 text-sm">1800 5700 / 1800 5000</strong></p>
+                    <p class="text-xs text-slate-400">SMS Block Card: <code class="bg-slate-900 px-1 py-0.5 rounded">BLOCK &lt;Last 4 Digits&gt; to 8422009988</code></p>
+                </div>
+
+                <div class="bg-cyber-card p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-white font-sans">HDFC Bank</h3>
+                    <p class="text-xs text-slate-400 mt-1">Toll Free: <strong class="text-emerald-400 text-sm">1800 1600 / 1800 2600</strong></p>
+                    <p class="text-xs text-slate-400 font-sans">Report Fraud: <span class="text-blue-300">hdfcbank.com/services/report-fraud</span></p>
+                </div>
+
+                <div class="bg-cyber-card p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-white font-sans">ICICI Bank</h3>
+                    <p class="text-xs text-slate-400 mt-1">Toll Free: <strong class="text-emerald-400 text-sm">1800 1080</strong></p>
+                    <p class="text-xs text-slate-400">SMS Block Card: <code class="bg-slate-900 px-1 py-0.5 rounded">3DSEC &lt;Last 4 Digits&gt; to 5676766</code></p>
+                </div>
+
+                <div class="bg-cyber-card p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-white font-sans">National Cyber Helpline</h3>
+                    <p class="text-xs text-slate-400 mt-1">All India Emergency: <strong class="text-red-400 text-sm">1930</strong></p>
+                    <p class="text-xs text-slate-400 font-sans">Official Portal: <span class="text-blue-300">cybercrime.gov.in</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: JARGON DECODER -->
+        <section id="tab-glossary" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-400 border-l-4 border-blue-500 pl-3">
+                    Cyber Terminology Decoder
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Complex technical terms explained in simple, practical everyday words.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-cyber-card p-5 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-cyber-accent">📌 What is an APK File?</h3>
+                    <p class="text-slate-300 text-sm mt-2">An <code class="font-mono">.apk</code> is an Android application installation package. Downloading APKs sent over messaging apps can install spyware that secretly reads bank SMS OTPs.</p>
+                </div>
+
+                <div class="bg-cyber-card p-5 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-cyber-accent">📌 What is an OTP?</h3>
+                    <p class="text-slate-300 text-sm mt-2">One-Time Password is a unique 4 or 6-digit temporary security code sent by banks to verify high-value transactions. Sharing your OTP gives full access to your funds.</p>
+                </div>
+
+                <div class="bg-cyber-card p-5 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-cyber-accent">📌 What is Digital Arrest?</h3>
+                    <p class="text-slate-300 text-sm mt-2">A psychological extortion scam where fraudsters video call targets pretending to be police officers, threatening immediate imprisonment unless money is wired.</p>
+                </div>
+
+                <div class="bg-cyber-card p-5 rounded-xl border border-slate-800">
+                    <h3 class="text-lg font-bold text-cyber-accent">📌 What is Phishing?</h3>
+                    <p class="text-slate-300 text-sm mt-2">Fake SMS or emails containing malicious links designed to look identical to real bank websites in order to steal passwords and login details.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: SPOT THE SCAM INTERACTIVE QUIZ -->
+        <section id="tab-quiz" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-amber-400 border-l-4 border-amber-400 pl-3">
+                    Interactive "Spot the Scam" Practice
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Test your cyber defense skills with real scenarios!</p>
+            </div>
+
+            <div class="bg-cyber-card border border-slate-800 rounded-2xl p-6 shadow-xl max-w-2xl mx-auto">
+                <div id="quiz-q1" class="quiz-step">
+                    <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 1 of 4</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">
+                        A WhatsApp caller says they sent ₹5,000 to your bank account by mistake and asks you to enter your UPI PIN to send it back. What should you do?
+                    </h3>
+
+                    <div class="space-y-3 mt-5">
+                        <button onclick="checkAnswer(1, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>A) Enter my UPI PIN quickly to help them return the money.</span>
+                            <span class="text-slate-500 text-xs">Option 1</span>
+                        </button>
+                        <button onclick="checkAnswer(1, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>B) Refuse! You NEVER enter a PIN to receive or refund money. Check my bank balance independently.</span>
+                            <span class="text-slate-500 text-xs">Option 2</span>
+                        </button>
+                    </div>
+                    <div id="quiz-feedback-1" class="hidden mt-5 p-4 rounded-xl text-sm font-bold"></div>
+                    <button onclick="nextQuestion(2)" id="next-btn-1" class="hidden mt-4 bg-cyber-accent text-cyber-dark font-extrabold px-4 py-2 rounded-lg text-sm">Next Scenario →</button>
+                </div>
+
+                <div id="quiz-q2" class="quiz-step hidden">
+                    <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 2 of 4</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">
+                        You receive an SMS: "Electricity bill unpaid! Power will cut off at 9:00 PM. Call officer at 9876543210 immediately." What is the safest response?
+                    </h3>
+
+                    <div class="space-y-3 mt-5">
+                        <button onclick="checkAnswer(2, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>A) Call the personal mobile number given in the SMS right away.</span>
+                            <span class="text-slate-500 text-xs">Option 1</span>
+                        </button>
+                        <button onclick="checkAnswer(2, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>B) Ignore the SMS number! Check official paper bills or official power utility payment portal.</span>
+                            <span class="text-slate-500 text-xs">Option 2</span>
+                        </button>
+                    </div>
+                    <div id="quiz-feedback-2" class="hidden mt-5 p-4 rounded-xl text-sm font-bold"></div>
+                    <button onclick="nextQuestion(3)" id="next-btn-2" class="hidden mt-4 bg-cyber-accent text-cyber-dark font-extrabold px-4 py-2 rounded-lg text-sm">Next Scenario →</button>
+                </div>
+
+                <div id="quiz-q3" class="quiz-step hidden">
+                    <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 3 of 4</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">
+                        A contact on WhatsApp sends a file named <code class="font-mono">PM_Ration_Scheme_2026.apk</code> and tells you to install it to get government subsidy. What should you do?
+                    </h3>
+
+                    <div class="space-y-3 mt-5">
+                        <button onclick="checkAnswer(3, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>A) Click install immediately to get the subsidy benefits.</span>
+                            <span class="text-slate-500 text-xs">Option 1</span>
+                        </button>
+                        <button onclick="checkAnswer(3, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>B) Never install APK files from WhatsApp! Only download apps from official Play Store.</span>
+                            <span class="text-slate-500 text-xs">Option 2</span>
+                        </button>
+                    </div>
+                    <div id="quiz-feedback-3" class="hidden mt-5 p-4 rounded-xl text-sm font-bold"></div>
+                    <button onclick="nextQuestion(4)" id="next-btn-3" class="hidden mt-4 bg-cyber-accent text-cyber-dark font-extrabold px-4 py-2 rounded-lg text-sm">Next Scenario →</button>
+                </div>
+
+                <div id="quiz-q4" class="quiz-step hidden">
+                    <span class="bg-amber-500/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-500/30">Scenario 4 of 4</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">
+                        Someone calling on video claims to be a police officer and states you are under "Digital Arrest" for an illegal parcel. What is your best action?
+                    </h3>
+
+                    <div class="space-y-3 mt-5">
+                        <button onclick="checkAnswer(4, false)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>A) Transfer money immediately as demanded to avoid going to jail.</span>
+                            <span class="text-slate-500 text-xs">Option 1</span>
+                        </button>
+                        <button onclick="checkAnswer(4, true)" class="w-full text-left bg-slate-900 hover:bg-slate-800 p-4 rounded-xl border border-slate-700 text-sm font-semibold transition-all flex items-center justify-between">
+                            <span>B) Disconnect the video call immediately! Police never conduct arrests or ask for money on video calls.</span>
+                            <span class="text-slate-500 text-xs">Option 2</span>
+                        </button>
+                    </div>
+                    <div id="quiz-feedback-4" class="hidden mt-5 p-4 rounded-xl text-sm font-bold"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Interactivity Code -->
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-cyber-accent', 'text-cyber-dark', 'shadow-md');
+                btn.classList.add('text-slate-300');
+            });
+
+            const target = document.getElementById('tab-' + tabName);
+            if(target) {
+                target.classList.remove('hidden');
+            }
+
+            const activeBtn = document.getElementById('nav-' + tabName);
+            if(activeBtn) {
+                activeBtn.classList.add('bg-cyber-accent', 'text-cyber-dark', 'shadow-md');
+                activeBtn.classList.remove('text-slate-300');
+            }
+        }
+
+        function toggleCard(cardEl) {
+            const extra = cardEl.querySelector('.extra-content');
+            const icon = cardEl.querySelector('.expand-icon');
+            
+            if (extra) {
+                extra.classList.toggle('hidden');
+                if (icon) {
+                    icon.textContent = extra.classList.contains('hidden') ? '+' : '−';
+                }
+            }
+        }
+
+        function checkAnswer(questionNum, isCorrect) {
+            const feedback = document.getElementById('quiz-feedback-' + questionNum);
+            feedback.classList.remove('hidden', 'bg-emerald-950', 'text-emerald-300', 'border-emerald-500', 'bg-red-950', 'text-red-300', 'border-red-500');
+
+            if (isCorrect) {
+                feedback.classList.add('bg-emerald-950', 'text-emerald-300', 'border', 'border-emerald-500');
+                feedback.innerHTML = '✅ CORRECT! You identified the scam correctly. Always verify independently through official channels.';
+            } else {
+                feedback.classList.add('bg-red-950', 'text-red-300', 'border', 'border-red-500');
+                feedback.innerHTML = '❌ DANGER! Falling for urgency or fake authority leads directly to financial loss.';
+            }
+
+            const nextBtn = document.getElementById('next-btn-' + questionNum);
+            if(nextBtn) nextBtn.classList.remove('hidden');
+        }
+
+        function nextQuestion(qNum) {
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('quiz-q' + qNum).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

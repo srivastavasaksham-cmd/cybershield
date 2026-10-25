@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybershield - Recent Scams in India</title>
+    <!-- Modern Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            background-color: #0c192c; 
+            color: #ffffff; 
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            text-align: center; 
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+            padding: 12px 25px;
+            background: #132238;
+            border-radius: 12px;
+            border-bottom: 2px solid #38bdf8;
+        }
+
+        .brand-name { font-size: 1.6em; font-weight: 800; color: #38bdf8; letter-spacing: -0.5px; }
+        .nav-links a { color: #ffffff; text-decoration: none; margin: 0 12px; font-weight: 600; transition: color 0.2s ease; }
+        .nav-links a:hover { color: #38bdf8; }
+
+        .section-title {
+            color: #38bdf8;
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 30px auto 10px auto;
+            text-align: left;
+            max-width: 900px;
+            border-left: 5px solid #38bdf8;
+            padding-left: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Interactive Scam Box */
+        .scam-box {
+            background: #132238;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 24px 28px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-top: 4px solid #ef4444;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scam-box:hover {
+            transform: translateY(-3px);
+            background: #1a2e4a;
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+            border-top-color: #f87171;
+        }
+
+        .scam-box h3 { color: #f87171; margin-top: 0; font-size: 1.3em; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .scam-box p { color: #cbd5e1; font-size: 0.95em; line-height: 1.6; font-weight: 400; }
+        
+        .action { 
+            background: #1e293b; 
+            padding: 12px 16px; 
+            border-radius: 8px; 
+            color: #38bdf8; 
+            font-weight: 700; 
+            margin-top: 15px; 
+            border-left: 3px solid #38bdf8;
+        }
+
+        .extra-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #94a3b8;
+            font-size: 0.9em;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .scam-box.active .extra-details {
+            max-height: 120px;
+            margin-top: 10px;
+            padding-top: 5px;
+        }
+
+        .hint {
+            font-size: 0.75em;
+            color: #94a3b8;
+            text-align: right;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+
+    <script>
+        function toggleScam(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header-bar">
+        <div class="brand-name">🛡️ Cybershield</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/prevention">Safety Steps</a>
+            <a href="/scams">Recent Scams</a>
+        </div>
+    </div>
+
+    <div class="section-title">Beware of Recent Cyber Scams in India</div>
+
+    <div class="scam-box" onclick="toggleScam(this)">
+        <h3>1. Fake "Digital Arrest" Video Call Scam <span>👇</span></h3>
+        <p><strong>What Happens:</strong> A person in a police uniform calls you on Skype or WhatsApp claiming a courier package in your name was seized with illegal items. They intimidate you on video call and demand money for "verification."</p>
+        <p><strong>The Truth:</strong> Police, CBI, or Customs <strong>NEVER</strong> conduct trials or make arrests over video calls, nor do they ask for money online.</p>
+        <div class="extra-details">
+            <p>💡 <em>Why it works:</em> Scammers use high-pressure tactics and fake backdrops resembling police stations to create panic.</p>
+        </div>
+        <div class="action">🚨 Action: Disconnect immediately. Dial 1930 or go to your nearest police station.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+    <div class="scam-box" onclick="toggleScam(this)">
+        <h3>2. Fake Electricity / Ration Cut-Off Alert <span>👇</span></h3>
+        <p><strong>What Happens:</strong> An urgent SMS claims your power connection will be cut off tonight due to an unpaid bill and gives a personal mobile number to call.</p>
+        <p><strong>The Truth:</strong> Electricity departments issue formal notice letters; they never cut power within hours via SMS threats.</p>
+        <div class="extra-details">
+            <p>💡 <em>Why it works:</em> Threatening service disconnection late at night forces people to act before checking facts.</p>
+        </div>
+        <div class="action">🚨 Action: Never call the number in the SMS. Check your printed physical bill or official website.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+    <div class="scam-box" onclick="toggleScam(this)">
+        <h3>3. "Like YouTube Videos & Earn ₹2,000" Scam <span>👇</span></h3>
+        <p><strong>What Happens:</strong> Messages offer easy income for liking videos. They pay ₹100 initially to earn trust, then ask you to pay a "deposit" to unlock bigger tasks before blocking you.</p>
+        <p><strong>The Truth:</strong> Real jobs never ask you to pay money first to earn money.</p>
+        <div class="extra-details">
+            <p>💡 <em>Why it works:</em> Small initial payouts trick targets into believing the system is fully legitimate and safe.</p>
+        </div>
+        <div class="action">🚨 Action: Ignore work offers that demand advance fees or deposits.</div>
+        <div class="hint">Click to expand details</div>
+    </div>
+
+</body>
+</html>
